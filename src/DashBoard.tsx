@@ -8,7 +8,6 @@ export function DashBoard() {
         setIsOpen(!isOpen);
     };
 
-    console.log(isOpen);
     return (
         <div>
             {!isOpen && <button onClick={toggleModal}>Open modal</button>}

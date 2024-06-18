@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { ReactElement, forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import style from "./Modal.module.scss";
 
 export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: ModalProps, ref) {
@@ -30,14 +30,10 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
     return (
         <dialog ref={dialogRef}>
             <div className={style.mainContent}>
-                <h1>Modale ouverte</h1>
-                <div>Children</div>
+                <h1>{props.title}</h1>
+                <div>{props.children}</div>
             </div>
-            <div className={style.btnContainer}>
-                <button>Edit</button>
-                <button>Cancel</button>
-                <button>Validate</button>
-            </div>
+            <div className={style.btnContainer}></div>
             <button className={style.closeBtn} onClick={close}>
                 close
             </button>
@@ -46,7 +42,9 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
 });
 
 export interface ModalProps {
+    title?: string;
     onClose?: () => boolean;
+    children?: ReactElement;
 }
 
 export interface ModalHandle {

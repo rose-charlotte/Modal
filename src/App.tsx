@@ -1,7 +1,12 @@
 import "./App.css";
+import { DashBoard } from "./DashBoard";
 
 export function App() {
-    return <div>Je suis la modale</div>;
+    return (
+        <div>
+            <DashBoard />
+        </div>
+    );
 }
 
 export default App;

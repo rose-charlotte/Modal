@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { Modal } from "./Modal";
+import { useRef } from "react";
+import { Modal, ModalHandle } from "./Modal";
 
 export function DashBoard() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const modalRef = useRef<ModalHandle>(null);
 
     const toggleModal = () => {
-        setIsOpen(!isOpen);
+        modalRef.current?.show();
     };
 
     return (
         <div>
-            {!isOpen && <button onClick={toggleModal}>Open modal</button>}
-            <Modal isOpen={isOpen} onClose={toggleModal} />
+            <button onClick={toggleModal}>Open modal</button>
+            <Modal ref={modalRef} />
         </div>
     );
 }

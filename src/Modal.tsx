@@ -34,13 +34,15 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
                 <div>{props.children}</div>
                 {props.buttonProps &&
                     props.buttonProps.map(button => (
-                        <button style={button.style} key={button.key} onClick={button.onClick}>
+                        <button aria-label={button.text} style={button.style} key={button.key} onClick={button.onClick}>
                             {button.text}
                         </button>
                     ))}
-                <button className={style.closeBtn} onClick={close}>
-                    close
-                </button>
+                {!props.hideCloseButton && (
+                    <button aria-label="close button" className={style.closeBtn} onClick={close}>
+                        close
+                    </button>
+                )}
             </div>
         </dialog>
     );
@@ -51,6 +53,7 @@ export interface ModalProps {
     onClose?: () => boolean;
     children?: ReactNode;
     buttonProps?: ButtonProps[];
+    hideCloseButton?: boolean;
 }
 
 export interface ModalHandle {

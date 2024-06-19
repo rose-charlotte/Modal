@@ -1,4 +1,4 @@
-import { ReactElement, forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import { ReactNode, forwardRef, useCallback, useImperativeHandle, useRef } from "react";
 import style from "./Modal.module.scss";
 
 export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: ModalProps, ref) {
@@ -29,14 +29,19 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
 
     return (
         <dialog ref={dialogRef}>
-            <div className={style.mainContent}>
+            <div className={style.container}>
                 <h1>{props.title}</h1>
                 <div>{props.children}</div>
+                {props.buttonProps &&
+                    props.buttonProps.map(button => (
+                        <button style={button.style} key={button.key} onClick={button.onClick}>
+                            {button.text}
+                        </button>
+                    ))}
+                <button className={style.closeBtn} onClick={close}>
+                    close
+                </button>
             </div>
-            <div className={style.btnContainer}></div>
-            <button className={style.closeBtn} onClick={close}>
-                close
-            </button>
         </dialog>
     );
 });
@@ -44,10 +49,18 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
 export interface ModalProps {
     title?: string;
     onClose?: () => boolean;
-    children?: ReactElement;
+    children?: ReactNode;
+    buttonProps?: ButtonProps[];
 }
 
 export interface ModalHandle {
     close: () => void;
     show: () => void;
+}
+
+export interface ButtonProps {
+    key: string;
+    text: string;
+    onClick: () => void;
+    style?: React.CSSProperties;
 }

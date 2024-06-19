@@ -14,6 +14,7 @@ export function DashBoard() {
             text: "delete",
             onClick: () => {
                 console.log("cliqué");
+                modalRef.current?.close();
             },
             style: { backgroundColor: "red", color: "white" },
         },

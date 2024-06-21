@@ -1,9 +1,9 @@
-import { ReactNode, forwardRef, useCallback, useImperativeHandle, useRef } from "react";
-import style from "./Modal.module.scss";
+import { ReactNode, useCallback, useEffect, useRef } from "react";
+// import style from "./Modal.module.scss";
 
-export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: ModalProps, ref) {
+export function Modal(props: ModalProps) {
     const dialogRef = useRef<HTMLDialogElement>(null);
-    const { onClose } = props;
+    const { onClose, open } = props;
 
     const close = useCallback(() => {
         const canClose = onClose?.();
@@ -16,20 +16,17 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
         dialogRef.current?.showModal();
     }, [dialogRef]);
 
-    useImperativeHandle(
-        ref,
-        () => {
-            return {
-                close,
-                show,
-            };
-        },
-        [close, show]
-    );
+    useEffect(() => {
+        if (open) {
+            show();
+        } else {
+            close();
+        }
+    }, [open, close, show]);
 
     return (
         <dialog ref={dialogRef}>
-            <div className={style.container}>
+            <div className={/*style.container */ undefined}>
                 <h1>{props.title}</h1>
                 <div>{props.children}</div>
                 {props.buttonProps &&
@@ -39,26 +36,22 @@ export const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(props: M
                         </button>
                     ))}
                 {!props.hideCloseButton && (
-                    <button aria-label="close button" className={style.closeBtn} onClick={close}>
+                    <button aria-label="close button" className={/*style.closeBtn*/ undefined} onClick={close}>
                         close
                     </button>
                 )}
             </div>
         </dialog>
     );
-});
+}
 
 export interface ModalProps {
+    open: boolean;
     title?: string;
     onClose?: () => boolean;
     children?: ReactNode;
     buttonProps?: ButtonProps[];
     hideCloseButton?: boolean;
-}
-
-export interface ModalHandle {
-    close: () => void;
-    show: () => void;
 }
 
 export interface ButtonProps {

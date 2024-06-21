@@ -1,12 +1,8 @@
-import { useRef } from "react";
-import { ButtonProps, Modal, ModalHandle } from "./Modal";
+import { useState } from "react";
+import { ButtonProps, Modal } from "./Modal";
 
 export function DashBoard() {
-    const modalRef = useRef<ModalHandle>(null);
-
-    const toggleModal = () => {
-        modalRef.current?.show();
-    };
+    const [isOpened, setIsOpened] = useState(false);
 
     const buttons: ButtonProps[] = [
         {
@@ -14,7 +10,6 @@ export function DashBoard() {
             text: "delete",
             onClick: () => {
                 console.log("cliqué");
-                modalRef.current?.close();
             },
             style: { backgroundColor: "red", color: "white" },
         },
@@ -22,8 +17,8 @@ export function DashBoard() {
 
     return (
         <div>
-            <button onClick={toggleModal}>Open modal</button>
-            <Modal ref={modalRef} title="Modale ouverte" buttonProps={buttons}>
+            <button onClick={() => setIsOpened(!isOpened)}>Open modal</button>
+            <Modal open={isOpened} title="Modale ouverte" buttonProps={buttons}>
                 <>
                     <p>je suis le children</p>
                 </>

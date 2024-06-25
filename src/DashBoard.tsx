@@ -9,7 +9,7 @@ export function DashBoard() {
             key: "delete",
             text: "delete",
             onClick: () => {
-                console.log("cliqué");
+                alert("cliqué");
             },
             style: { backgroundColor: "red", color: "white" },
         },

@@ -36,7 +36,7 @@ export function Modal(props: ModalProps) {
                         </button>
                     ))}
                 {!props.hideCloseButton && (
-                    <button aria-label="close button" className={/*style.closeBtn*/ undefined} onClick={close}>
+                    <button aria-label="close" className={/*style.closeBtn*/ undefined} onClick={close}>
                         close
                     </button>
                 )}

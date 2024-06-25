@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useEffect, useRef } from "react";
-// import style from "./Modal.module.scss";
+import style from "./Modal.module.scss";
 
 export function Modal(props: ModalProps) {
     const dialogRef = useRef<HTMLDialogElement>(null);
@@ -26,7 +26,7 @@ export function Modal(props: ModalProps) {
 
     return (
         <dialog ref={dialogRef}>
-            <div className={/*style.container */ undefined}>
+            <div className={style.container /* undefined*/}>
                 <h1>{props.title}</h1>
                 <div>{props.children}</div>
                 {props.buttonProps &&
@@ -36,7 +36,7 @@ export function Modal(props: ModalProps) {
                         </button>
                     ))}
                 {!props.hideCloseButton && (
-                    <button aria-label="close" className={/*style.closeBtn*/ undefined} onClick={close}>
+                    <button aria-label="close" className={style.closeBtn /*undefined*/} onClick={close}>
                         close
                     </button>
                 )}

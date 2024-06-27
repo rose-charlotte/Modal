@@ -5,6 +5,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Modal } from "./Modal";
+import { axe, toHaveNoViolations } from "jest-axe";
+expect.extend(toHaveNoViolations);
 
 describe("Given I am on the modal page", () => {
     test("shows", () => {
@@ -55,5 +57,10 @@ describe("Given I am on the modal page", () => {
         fireEvent.click(newBtn!);
 
         expect(global.alert).toHaveBeenCalledTimes(1);
+    });
+
+    test("accessible dialog pass axe", async () => {
+        const { container } = render(<Modal open />);
+        expect(await axe(container)).toHaveNoViolations();
     });
 });

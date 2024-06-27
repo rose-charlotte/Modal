@@ -27,7 +27,7 @@ export function Modal(props: ModalProps) {
     return (
         <dialog ref={dialogRef}>
             <div className={style.container /* undefined*/}>
-                <h1>{props.title}</h1>
+                <h1 aria-label="Main title">{props.title}</h1>
                 <div>{props.children}</div>
                 {props.buttonProps &&
                     props.buttonProps.map(button => (

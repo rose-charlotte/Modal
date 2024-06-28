@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Modal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repo is a basic model for a modal.
+It contains the very basic implementation of a modal, including its own test and accessibility test
 
-Currently, two official plugins are available:
+## How to use
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To install the modal package, ....
 
-## Expanding the ESLint configuration
+## Modal's props
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+With this modal you can modify certains elements, using the following props:
 
-- Configure the top-level `parserOptions` property like this:
+**title**: to add a main title to your modal
+**children**: to add any type of children inside the modal, like a text or a list ...
+**hideCloseButton**: (boolean) to hide the basic closing button
+**buttonProps**: to add different type of buttons:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Specifics props for the buttons:
+
+**key**: string
+**text**: to specify button usage
+**onClick()**: to pass any function to the button
+**style**: ( React.CSSProperties) to style the button
+
+## Use of the storybook
+
+To have a view of what can be the modal, run:
+
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+npm run storybook
+```

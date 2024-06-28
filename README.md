@@ -12,8 +12,11 @@ To install the modal package, ....
 With this modal you can modify certains elements, using the following props:
 
 **title**: to add a main title to your modal.
+
 **children**: to add any type of children inside the modal, like a text or a list ...
+
 **hideCloseButton**: (boolean) to hide the basic closing button.
+
 **buttonProps**: to add different type of buttons.
 
 Specifics props for the buttons:

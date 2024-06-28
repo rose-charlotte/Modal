@@ -21,9 +21,12 @@ With this modal you can modify certains elements, using the following props:
 
 Specifics props for the buttons:
 
-**key**: string
-**text**: to specify button usage
-**onClick()**: to pass any function to the button
+**key**: string.
+
+**text**: to specify button usage.
+
+**onClick()**: to pass any function to the button.
+
 **style**: ( React.CSSProperties) to style the button
 
 ## Use of the storybook

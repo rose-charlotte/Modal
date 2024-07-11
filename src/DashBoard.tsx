@@ -11,14 +11,29 @@ export function DashBoard() {
             onClick: () => {
                 alert("cliqué");
             },
-            style: { backgroundColor: "red", color: "white" },
+            styles: {
+                style: {
+                    backgroundColor: "blue",
+                    color: "white",
+                },
+            },
         },
     ];
 
     return (
         <div>
             <button onClick={() => setIsOpened(!isOpened)}>Open modal</button>
-            <Modal open={isOpened} title="Modale ouverte" buttonProps={buttons}>
+            <Modal
+                open={isOpened}
+                buttonProps={buttons}
+                styles={{
+                    dialog: {
+                        style: {
+                            backgroundColor: "violet",
+                        },
+                    },
+                }}
+            >
                 <>
                     <p>je suis le children</p>
                 </>

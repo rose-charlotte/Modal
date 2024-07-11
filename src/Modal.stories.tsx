@@ -53,3 +53,38 @@ export const WithButtonsAndNoDefaultCloseButton: Story = {
         ],
     },
 };
+
+export const ModalWithDefinedStyle: Story = {
+    args: {
+        open: true,
+        hideCloseButton: false,
+        buttonProps: [
+            {
+                key: "button1",
+                text: "Save",
+                onClick: () => {},
+                styles: {
+                    style: {
+                        backgroundColor: "blue",
+                        color: "white",
+                    },
+                },
+            },
+        ],
+        styles: {
+            dialog: {
+                style: {
+                    backgroundColor: "violet",
+                    color: "white",
+                    borderRadius: "20px",
+                },
+            },
+            closeButton: {
+                style: {
+                    backgroundColor: "lightBlue",
+                    color: "red",
+                },
+            },
+        },
+    },
+};

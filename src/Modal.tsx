@@ -10,11 +10,11 @@ export function Modal(props: ModalProps) {
         if (canClose ?? true) {
             dialogRef.current?.close();
         }
-    }, [dialogRef, onClose]);
+    }, [onClose]);
 
     const show = useCallback(() => {
         dialogRef.current?.showModal();
-    }, [dialogRef]);
+    }, []);
 
     const concatClassNames = (...classNames: (string | undefined)[]) =>
         classNames.reduce((previousClassName, className) => {

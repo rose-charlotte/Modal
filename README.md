@@ -5,7 +5,13 @@ It contains the very basic implementation of a modal, including its own test and
 
 ## How to use
 
-To install the modal package, ....
+You first need to authenticate to Github packages, follow the documentation at https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package
+
+Then run
+
+```
+npm install @rose-charlotte/modal
+```
 
 ## Modal's props
 

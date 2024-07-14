@@ -20,6 +20,7 @@ export default defineConfig({
             entry: resolve("src", "index.ts"),
             name: "@rose-charlotte/modal",
             formats: ["es"],
+            fileName: "index",
         },
         rollupOptions: {
             external: [...Object.keys(packageJson.peerDependencies)],

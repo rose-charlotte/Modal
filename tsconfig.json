@@ -14,13 +14,13 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
+        "declaration": true,
 
         /* Linting */
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-
         "types": ["@testing-library/jest-dom"]
     },
     "include": ["src"],

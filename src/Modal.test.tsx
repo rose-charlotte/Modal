@@ -16,25 +16,6 @@ describe("Given I am on the modal page", () => {
         expect(dialog).toBeInTheDocument();
     });
 
-    test("check Close button", () => {
-        render(<Modal open />);
-        const closeBtn = screen.queryByRole("button", { name: "close" });
-        expect(closeBtn).toBeInTheDocument();
-    });
-    test("click on the close button to close the modal", () => {
-        render(<Modal open />);
-        const closeBtn = screen.queryByRole("button", { name: "close" });
-        fireEvent.click(closeBtn!);
-        const dialog = screen.queryByRole("dialog");
-        expect(dialog).not.toBeInTheDocument();
-    });
-
-    test("check close button is hidden when specified by the hideCloseButtonProps", () => {
-        render(<Modal open hideCloseButton />);
-        const closeBtn = screen.queryByRole("button", { name: "close" });
-        expect(closeBtn).not.toBeInTheDocument();
-    });
-
     const button = [
         {
             key: "delete",
@@ -50,6 +31,7 @@ describe("Given I am on the modal page", () => {
         const newBtn = screen.queryByText("delete");
         expect(newBtn).toBeInTheDocument();
     });
+
     test("the function of the button", () => {
         global.alert = jest.fn();
         render(<Modal open buttonProps={button} />);

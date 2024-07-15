@@ -3,14 +3,11 @@ import style from "./Modal.module.scss";
 
 export function Modal(props: ModalProps) {
     const dialogRef = useRef<HTMLDialogElement>(null);
-    const { onClose, open } = props;
+    const { open } = props;
 
     const close = useCallback(() => {
-        const canClose = onClose?.();
-        if (canClose ?? true) {
-            dialogRef.current?.close();
-        }
-    }, [onClose]);
+        dialogRef.current?.close();
+    }, []);
 
     const show = useCallback(() => {
         dialogRef.current?.showModal();
@@ -61,6 +58,7 @@ export function Modal(props: ModalProps) {
                     props.buttonProps.map(button => (
                         <button
                             aria-label={button.text}
+                            disabled={button.disabled}
                             style={button.styles?.style}
                             key={button.key}
                             onClick={button.onClick}
@@ -69,16 +67,6 @@ export function Modal(props: ModalProps) {
                             {button.text}
                         </button>
                     ))}
-                {!props.hideCloseButton && (
-                    <button
-                        aria-label="close"
-                        className={concatClassNames(style.closeBtn, props.styles?.closeButton?.className)}
-                        style={props.styles?.closeButton?.style}
-                        onClick={close}
-                    >
-                        close
-                    </button>
-                )}
             </div>
         </dialog>
     );
@@ -87,15 +75,14 @@ export function Modal(props: ModalProps) {
 export interface ModalProps {
     open: boolean;
     title?: string;
-    onClose?: () => boolean;
     children?: ReactNode;
     buttonProps?: ButtonProps[];
-    hideCloseButton?: boolean;
     styles?: ModalStyles;
 }
 
 export interface ButtonProps {
     key: string;
+    disabled?: boolean;
     text: string;
     onClick: () => void;
     styles?: CombinedStyles;
@@ -105,7 +92,6 @@ export interface ModalStyles {
     dialog?: CombinedStyles;
     container?: CombinedStyles;
     title?: CombinedStyles;
-    closeButton?: CombinedStyles;
 }
 
 export interface CombinedStyles {

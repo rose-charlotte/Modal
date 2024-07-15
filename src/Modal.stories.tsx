@@ -42,7 +42,6 @@ export const WithButtons: Story = {
 export const WithButtonsAndNoDefaultCloseButton: Story = {
     args: {
         open: true,
-        hideCloseButton: true,
         title: "With buttons",
         buttonProps: [
             {
@@ -57,7 +56,6 @@ export const WithButtonsAndNoDefaultCloseButton: Story = {
 export const ModalWithDefinedStyle: Story = {
     args: {
         open: true,
-        hideCloseButton: false,
         buttonProps: [
             {
                 key: "button1",
@@ -77,12 +75,6 @@ export const ModalWithDefinedStyle: Story = {
                     backgroundColor: "violet",
                     color: "white",
                     borderRadius: "20px",
-                },
-            },
-            closeButton: {
-                style: {
-                    backgroundColor: "lightBlue",
-                    color: "red",
                 },
             },
         },

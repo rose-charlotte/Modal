@@ -10,7 +10,7 @@ expect.extend(toHaveNoViolations);
 
 describe("Given I am on the modal page", () => {
     test("shows", () => {
-        render(<Modal open />);
+        render(<Modal canCancel={false} />);
 
         const dialog = screen.getByRole("dialog");
         expect(dialog).toBeInTheDocument();
@@ -27,14 +27,14 @@ describe("Given I am on the modal page", () => {
         },
     ];
     test("add a new button", () => {
-        render(<Modal open buttonProps={button} />);
+        render(<Modal canCancel={false} buttonProps={button} />);
         const newBtn = screen.queryByText("delete");
         expect(newBtn).toBeInTheDocument();
     });
 
     test("the function of the button", () => {
         global.alert = jest.fn();
-        render(<Modal open buttonProps={button} />);
+        render(<Modal canCancel={false} buttonProps={button} />);
         const newBtn = screen.queryByText("delete");
         fireEvent.click(newBtn!);
 
@@ -42,7 +42,7 @@ describe("Given I am on the modal page", () => {
     });
 
     test("accessible dialog pass axe", async () => {
-        const { container } = render(<Modal open />);
+        const { container } = render(<Modal canCancel={false} />);
         expect(await axe(container)).toHaveNoViolations();
     });
 });

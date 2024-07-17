@@ -1,17 +1,27 @@
-import { ReactNode, useCallback, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import style from "./Modal.module.scss";
 
 export function Modal(props: ModalProps) {
     const dialogRef = useRef<HTMLDialogElement>(null);
-    const { open } = props;
 
-    const close = useCallback(() => {
-        dialogRef.current?.close();
+    useEffect(() => {
+        const dialog: HTMLDialogElement = dialogRef.current!;
+
+        dialog.addEventListener("cancel", onCancel);
+
+        dialog.showModal();
+
+        return () => dialog.close();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const show = useCallback(() => {
-        dialogRef.current?.showModal();
-    }, []);
+    function onCancel(e: Event) {
+        if (props.canCancel) {
+            props.onCancel();
+        } else {
+            e.preventDefault();
+        }
+    }
 
     const concatClassNames = (...classNames: (string | undefined)[]) =>
         classNames.reduce((previousClassName, className) => {
@@ -25,14 +35,6 @@ export function Modal(props: ModalProps) {
 
             return `${previousClassName} ${className}`;
         });
-
-    useEffect(() => {
-        if (open) {
-            show();
-        } else {
-            close();
-        }
-    }, [open, close, show]);
 
     return (
         <dialog
@@ -72,13 +74,18 @@ export function Modal(props: ModalProps) {
     );
 }
 
-export interface ModalProps {
-    open: boolean;
+export type ModalProps = {
     title?: string;
     children?: ReactNode;
     buttonProps?: ButtonProps[];
     styles?: ModalStyles;
-}
+} & (
+    | { canCancel: false }
+    | {
+          canCancel: true;
+          onCancel: () => void;
+      }
+);
 
 export interface ButtonProps {
     key: string;

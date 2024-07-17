@@ -13,21 +13,17 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const NoContent: Story = {
-    args: {
-        open: true,
-    },
+    args: {},
 };
 
 export const WithTitle: Story = {
     args: {
-        open: true,
         title: "With title",
     },
 };
 
 export const WithButtons: Story = {
     args: {
-        open: true,
         title: "With buttons",
         buttonProps: [
             {
@@ -41,7 +37,6 @@ export const WithButtons: Story = {
 
 export const WithButtonsAndNoDefaultCloseButton: Story = {
     args: {
-        open: true,
         title: "With buttons",
         buttonProps: [
             {
@@ -55,7 +50,6 @@ export const WithButtonsAndNoDefaultCloseButton: Story = {
 
 export const ModalWithDefinedStyle: Story = {
     args: {
-        open: true,
         buttonProps: [
             {
                 key: "button1",

@@ -40,7 +40,7 @@ Specifics props for the buttons:
 Specifics props for the styles, in line or with class:
 
 **ModalStyles**:
-dialog?: (CombinedStyles) style for the diolog;
+`dialog?`: (CombinedStyles) style for the diolog;
 container?: (CombinedStyles) style for the container;
 title?: (CombinedStyles) styles for the title;
 closeButton?: (CombinedStyles) styles for the closing;

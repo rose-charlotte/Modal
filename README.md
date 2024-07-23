@@ -15,7 +15,7 @@ npm install @rose-charlotte/modal
 
 ## Modal's props
 
-### With this modal you can modify certains elements, using the following props:###
+### With this modal you can modify certains elements, using the following props:
 
 `title`: to add a main title to your modal.
 `children`: to add any type of children inside the modal, like a text or a list ...

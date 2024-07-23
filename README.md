@@ -1,13 +1,13 @@
 # Modal
 
 This repo is a basic model for a modal.
-It contains the very basic implementation of a modal, including its own test and accessibility test
+It contains a very basic implementation of a modal, including its own test and accessibility test.
 
 ## How to use
 
-You first need to authenticate to Github packages, follow the documentation at [GitHub Packages Documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)
+You first need to authenticate to Github packages. Follow the documentation at [GitHub Packages Documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)
 
-Then run
+Then run:
 
 ```
 npm install @rose-charlotte/modal
@@ -15,45 +15,45 @@ npm install @rose-charlotte/modal
 
 ## Modal's props
 
-### With this modal you can modify certains elements, using the following props:
+### With this modal you can modify certain elements using the following props:
 
-`title`: to add a main title to your modal.
+`title`: To add a main title to your modal.
 
-`children`: to add any type of children inside the modal, like a text or a list ...
+`children`: To add any type of children inside the modal, like a text or a list ...
 
-`buttonProps`: to add different type of buttons.
+`buttonProps`: To add different types of buttons.
 
-`styles`: as ModalStyles props, allows to choose style according to the HTML element choosen
+`styles`: As ModalStyles props, allows you to choose the style according to the HTML element chosen
 
-`onCancel()`: if canCancel is settled to true, the fonction onCancel is accessible. It allows, for example, to close the modal with the keyboard escape button.
+`onCancel()`: If canCancel is set to true, the function onCancel is accessible. It allows, for example, closing the modal with the keyboard escape button.
 
-### Specifics props for the buttons:
+### Specific props for the buttons:
 
 `key`: string.
 
-`disabled`: (optional) boolean.
+`disabled` (optional): boolean.
 
-`text`: to specify button usage.
+`text`: To specify button usage.
 
-`onClick()`: to pass any function to the button.
+`onClick()`: To pass any function to the button.
 
-`styles`:(optional) (combinedStyles) style for all buttons except the closing one
+`styles`(optional): (combinedStyles) style for buttons
 
-### Specifics props for the styles, in line or with class:
+### Specific props for the styles, inline or with class:
 
 **CombinedStyles**
 
-`className`:(optional) To add classes
+`className`(optional): To add classes
 
-`style`:(optional) for css in line
+`style`(optional): For css in line
 
 **ModalStyles**
 
-`dialog`:(optional) (CombinedStyles) style for the diolog;
+`dialog`(optional): (CombinedStyles) Style for the diolog;
 
-`container`: (optional) (CombinedStyles) style for the container;
+`container`(optional): (CombinedStyles) Style for the container;
 
-`title`: (optional) (CombinedStyles) styles for the title;
+`title` (optional): (CombinedStyles) Style for the title;
 
 ## Use of the storybook
 

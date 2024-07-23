@@ -5,7 +5,7 @@ It contains the very basic implementation of a modal, including its own test and
 
 ## How to use
 
-You first need to authenticate to Github packages, follow the documentation at https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package
+You first need to authenticate to Github packages, follow the documentation at[GitHub Packages Documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)
 
 Then run
 
@@ -15,39 +15,30 @@ npm install @rose-charlotte/modal
 
 ## Modal's props
 
-With this modal you can modify certains elements, using the following props:
+**With this modal you can modify certains elements, using the following props:**
+`title`: to add a main title to your modal.
+`children`: to add any type of children inside the modal, like a text or a list ...
+`buttonProps`: to add different type of buttons.
+`styles`: as ModalStyles props, allows to choose style according to the HTML element choosen
+`onCancel()`: if canCancel is settled to true, the fonction onCancel is accessible. It allows, for example, to close the modal with the keyboard escape button.
 
-**title**: to add a main title to your modal.
+**Specifics props for the buttons:**
+`key`: string.
+`disabled`: (optional) boolean.
+`text`: to specify button usage.
+`onClick()`: to pass any function to the button.
+`styles`:(optional) (combinedStyles) style for all buttons except the closing one
 
-**children**: to add any type of children inside the modal, like a text or a list ...
-
-**hideCloseButton**: (boolean) to hide the basic closing button.
-
-**buttonProps**: to add different type of buttons.
-
-**styles**: as ModalStyles props, allows to choose style according to the HTML element choosen
-
-Specifics props for the buttons:
-
-**key**: string.
-
-**text**: to specify button usage.
-
-**onClick()**: to pass any function to the button.
-
-**styles**: (combinedStyles) style for all buttons except the closing one
-
-Specifics props for the styles, in line or with class:
-
-**ModalStyles**:
-`dialog?`: (CombinedStyles) style for the diolog;
-container?: (CombinedStyles) style for the container;
-title?: (CombinedStyles) styles for the title;
-closeButton?: (CombinedStyles) styles for the closing;
+**Specifics props for the styles, in line or with class:**
 
 **CombinedStyles**
-className?: To add classes
-style?: fot css in line
+`className`:(optional) To add classes
+`style`:(optional) for css in line
+
+**ModalStyles**:
+`dialog`:(optional) (CombinedStyles) style for the diolog;
+`container`: (optional) (CombinedStyles) style for the container;
+`title`: (optional) (CombinedStyles) styles for the title;
 
 ## Use of the storybook
 

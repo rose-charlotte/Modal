@@ -18,27 +18,41 @@ npm install @rose-charlotte/modal
 ### With this modal you can modify certains elements, using the following props:
 
 `title`: to add a main title to your modal.
+
 `children`: to add any type of children inside the modal, like a text or a list ...
+
 `buttonProps`: to add different type of buttons.
+
 `styles`: as ModalStyles props, allows to choose style according to the HTML element choosen
+
 `onCancel()`: if canCancel is settled to true, the fonction onCancel is accessible. It allows, for example, to close the modal with the keyboard escape button.
 
-**Specifics props for the buttons:**
+### Specifics props for the buttons:
+
 `key`: string.
+
 `disabled`: (optional) boolean.
+
 `text`: to specify button usage.
+
 `onClick()`: to pass any function to the button.
+
 `styles`:(optional) (combinedStyles) style for all buttons except the closing one
 
-**Specifics props for the styles, in line or with class:**
+### Specifics props for the styles, in line or with class:
 
 **CombinedStyles**
+
 `className`:(optional) To add classes
+
 `style`:(optional) for css in line
 
-**ModalStyles**:
+**ModalStyles**
+
 `dialog`:(optional) (CombinedStyles) style for the diolog;
+
 `container`: (optional) (CombinedStyles) style for the container;
+
 `title`: (optional) (CombinedStyles) styles for the title;
 
 ## Use of the storybook

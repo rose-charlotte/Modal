@@ -59,7 +59,7 @@ npm install @rose-charlotte/modal
 
 This is an example of how you can use the modal:
 
-````
+```
 <Modal
 title="Example"
 children={<span>This is an example for the modal!</span>}
@@ -94,3 +94,4 @@ npm run storybook
 ```
 
 ```
+````

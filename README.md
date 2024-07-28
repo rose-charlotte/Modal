@@ -33,7 +33,7 @@ npm install @rose-charlotte/modal
 
 `disabled` (optional): boolean.
 
-`text`: To specify button usage.
+`text`:To specify button usage.
 
 `onClick()`: To pass any function to the button.
 
@@ -55,10 +55,42 @@ npm install @rose-charlotte/modal
 
 `title` (optional): (CombinedStyles) Style for the title;
 
+## Example:
+
+This is an exanmple of how you can use the modal:
+
+````
+<Modal
+title="Example"
+children={<span>This is an example for the modal!</span>}
+styles={{
+    dialog: { className: style.dialog },
+    container: { className: style.container },
+    title: { style: { fontSize: "25px" } },
+        }}
+canCancel
+onCancel={() => setIsModalOpened(false)}
+buttonProps={[
+                {
+                key: "Close",
+                onClick: () => setIsModalOpened(false),
+                text: "close",
+                styles: {
+                className: style.closeBtn,
+                        },
+                },
+            ]}
+/>
+```
+
 ## Use of the storybook
 
 To have a view of what can be the modal, run:
 
-```
+````
+
 npm run storybook
+
+```
+
 ```

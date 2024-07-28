@@ -57,7 +57,7 @@ npm install @rose-charlotte/modal
 
 ## Example:
 
-This is an exanmple of how you can use the modal:
+This is an example of how you can use the modal:
 
 ````
 <Modal
